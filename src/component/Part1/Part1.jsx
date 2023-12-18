@@ -16,7 +16,7 @@ const Part1 = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "left",
           /*  backgroundSize: "cover", */
-          height: {lg:"718px"},
+          height: { lg: "718px" },
         }}
       >
         <Box
@@ -29,7 +29,7 @@ const Part1 = () => {
               xs: "center",
               sm: "center",
             },
-            zIndex: 9999,
+
             gap: 2,
           }}
         >

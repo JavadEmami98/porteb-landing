@@ -1,12 +1,12 @@
-import React from 'react'
-import HeaderWeb from './HeaderWeb'
+import React from "react";
+import HeaderWeb from "./HeaderWeb";
 
 const Header = () => {
   return (
     <div>
-        <HeaderWeb/>
+      <HeaderWeb />
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

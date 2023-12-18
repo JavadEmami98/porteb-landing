@@ -1,7 +1,88 @@
 import { Box, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import Part4 from "../Part4/Part4";
+
+const days = [
+  {
+    day: "شنبه",
+    date: " ۱۴۰۲/۱۱/5",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "یکشنبه",
+    date: " ۱۴۰۲/۱۱/2",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "دوشنبه",
+    date: " ۱۴۰۲/۱۱/۷",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "سه شنبه",
+    date: " ۱۴۰۲/۱۱/۷",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "چهارشنبه",
+    date: " ۱۴۰۲/۱۱/۷",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "پنج شنبه",
+    date: " ۱۴۰۲/۱۱/۷",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 0 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+  {
+    day: "جمعه",
+    date: " ۱۴۰۲/۱۱/7",
+    visitTimes: [
+      { hour: "  8 صبح", capacity: 3 },
+      { hour: "  9 صبح", capacity: 0 },
+      { hour: "  10 صبح", capacity: 2 },
+      { hour: "  11 صبح", capacity: 0 },
+    ],
+  },
+];
 
 const Part3 = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleVisitTimeClick = (day) => {
+    setSelectedDate(day.day);
+  };
+  /*  -> /api/slots/available-slots -> method get // public api
+  -> /api/slots/initialize-slots -> method post // no body // public api */
   return (
     <div className="container lg:px-0 px-[15px] py-[2rem]">
       <div className="flex items-center justify-between w-full">
@@ -23,274 +104,51 @@ const Part3 = () => {
           <p className="lg:text-[36px] md:text-[22px] text-[8px] text-[#2D2D2D] font-medium mr-2">
             بهمن ۷-۱
           </p>
-          {/*    <div className="flex items-center mr-5">
-            <Button
-              variant="contained"
-              sx={{
-                width: {lg:"96px",md:"50px",xs:"19.89px",sm:"19.89px"},
-                height: {lg:"49px",md:"30px",xs:"10px",sm:"10px"},
-                bgcolor: "#354B44",
-                color: "#fff",
-                fontSize: {lg:"24px",md:"16px",xs:"6.26px",sm:"6.26px"},
-                borderTopLeftRadius: "0px",
-                borderBottomLeftRadius: "0px",
-                "&:hover": { bgcolor: "#354B44" },
-              }}
-            >
-              صبح
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                width: {lg:"96px",md:"50px",xs:"19.89px",sm:"19.89px"},
-                height: {lg:"49px",md:"30px",xs:"10px",sm:"10px"},
-                bgcolor: "#fff",
-                color: "#000",
-                fontSize: {lg:"24px",md:"16px",xs:"6.26px",sm:"6.26px"},
-                borderTopRightRadius: "0px",
-                borderBottomRightRadius: "0px",
-                "&:hover": { bgcolor: "#FFF" },
-              }}
-            >
-              ظهر
-            </Button>
-          </div> */}
         </div>
       </div>
       <div className="grid grid-cols-7 mt-4">
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/۷
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
+        {days.map((day, dayIndex) => (
+          <div key={dayIndex} className="flex flex-col">
+            <div className="flex flex-col">
+              <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
+                {day.day}
+              </p>
+              <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
+                {day.date}
               </p>
             </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              یک شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/1
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                11 صبح
-              </p>
+            <div className="flex flex-col items-center gap-6 mt-3">
+              {day.visitTimes.map((visitTimes, timeIndex) => (
+                <div
+                  key={timeIndex}
+                  className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]"
+                >
+                  <Button
+                    disabled={visitTimes.capacity === 0 ? "disabled" : ""}
+                    sx={{
+                      fontSize: {
+                        lg: "26px",
+                        md: "14px",
+                        xs: "6.25px",
+                        sm: "6.25px",
+                      },
+                      width: "100%",
+                      height: "100%",
+                      color: "#2D2D2D",
+                      fontWeight: 400,
+                    }}
+                    onClick={() => handleVisitTimeClick(day)}
+                    selectedDate={selectedDate}
+                  >
+                    {visitTimes.hour}
+                  </Button>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              دو شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/2
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              سه شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/3
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-[#354B44] border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#fff] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              چهار شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/4
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#A1A0A0] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              پنج شنبه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#2D2D2D] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/۵
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#5D8A7C] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#2D2D2D] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex flex-col">
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#A1A0A0] font-normal">
-              جمعه
-            </p>
-            <p className="lg:text-[28px] md:text-[14px] text-[7px] text-[#A1A0A0] font-normal">
-              {" "}
-              ۱۴۰۲/۱۱/۶{" "}
-            </p>
-          </div>
-          <div className="flex flex-col items-center gap-6 mt-3">
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#A1A0A0] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                ۸ صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#A1A0A0] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                9 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#A1A0A0] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                10 صبح
-              </p>
-            </div>
-            <div className="flex items-center justify-center lg:w-[105px] w-fit lg:p-0 p-2 lg:h-[48px] h-[12px] bg-white border-[1.5px] border-[#A1A0A0] rounded-[4px]">
-              <p className="lg:text-[26px] md:text-[14px] text-[6.25px] text-[#A1A0A0] font-normal">
-                11 صبح
-              </p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
+      <Part4 selectedDate={selectedDate} />
     </div>
   );
 };

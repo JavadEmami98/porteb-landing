@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: IRANSansfa;
+  font-family: Shabnam;
   font-style: normal;
   font-weight: bold;
   src: url("../public/iransans/eot/IRANSansWeb(FaNum)_Bold.eot") format("eot");
@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: IRANSansfa;
+  font-family: Shabnam;
   font-style: normal;
   font-weight: 500;
   src: url("../public/iransans/eot/IRANSansWeb(FaNum)_Medium.eot") format("eot");
@@ -34,7 +34,7 @@
 }
 
 @font-face {
-  font-family: IRANSansfa;
+  font-family: Shabnam;
   font-style: normal;
   font-weight: 300;
   src: url("../public/iransans/eot/IRANSansWeb(FaNum)_Light.eot") format("eot");
@@ -51,7 +51,7 @@
 }
 
 @font-face {
-  font-family: IRANSansfa;
+  font-family: Shabnam;
   font-style: normal;
   font-weight: 200;
   src: url("../public/iransans/eot/IRANSansWeb(FaNum)_UltraLight.eot")
@@ -70,7 +70,7 @@
 }
 
 @font-face {
-  font-family: IRANSansfa;
+  font-family: Shabnam;
   font-style: normal;
   font-weight: normal;
   src: url("../public/iransans/eot/IRANSansWeb(FaNum).eot") format("eot");
@@ -85,11 +85,11 @@
 }
 
 * {
-  font-family: IRANSansfa !important;
+  font-family: Shabnam !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-/*   background-color: #ecf7ef; */
+  /*   background-color: #ecf7ef; */
 }
 
 html,

@@ -13,7 +13,7 @@ const Hero = () => {
       <Part1 />
       <Part2 />
       <Part3 />
-      <Part4 />
+      {/* <Part4 /> */}
       <Footer />
     </div>
   );

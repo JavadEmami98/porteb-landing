@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { MdAccountCircle } from "react-icons/md";
-import { GiHamburgerMenu } from "react-icons/gi";
+import HamMenu from "./HamMenu";
 
 function HeaderWeb() {
   return (
@@ -14,10 +14,7 @@ function HeaderWeb() {
         className="flex justify-between lg:h-[85px] h-[40px] lg:px-10 px-[15px] py-[10px] lg:py-4 items-center"
       >
         <div className="lg:hidden block">
-          <Box
-            component={GiHamburgerMenu}
-            sx={{ width: "19px", height: "19px" }}
-          />
+          <HamMenu />
         </div>
         <div className="flex items-center justify-center ">
           <Box

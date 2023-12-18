@@ -12,9 +12,13 @@ const Index = () => {
             justifyContent: "center",
             height: "100vh",
             width: "100%",
+            backgroundImage: "url('/image/back-login.svg')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "73%",
           }}
         >
-          <div className="flex flex-col justify-between lg:px-[100px] md:px-[80px] px-[22px] py-7   min-h-[600px] bg-[#F9F8F6] rounded-[17px] border-[1.5px] border-[#747474]">
+          <div className="flex flex-col  lg:px-[100px] md:px-[80px] px-[22px] py-7   min-h-[600px] bg-[#F9F8F6] rounded-[17px] border-[1.5px] border-[#747474]">
             <div className="flex items-center justify-center ">
               <Box
                 component={"img"}
@@ -31,27 +35,34 @@ const Index = () => {
                 سامانه پرتب
               </h1>
             </div>
-            <div className="flex items-center flex-col gap-2">
-              <h3 className="lg:text-[32px] text-[26px]">شماره همراه</h3>
-              <input
-                type="tel"
-                className="text-[16px] mt-1 h-[60px] rounded-[4px] px-3 border-[1.5px] border-[#747474]"
-              />
-            </div>
-            <div className="flex items-center justify-center">
-              <Button
-                variant="contained"
-                sx={{
-                  height: "60px",
-                  width: "100%",
-                  bgcolor: "#354B44",
-                  color: "#fff",
-                  fontSize: { lg: "32px", md: "26px", xs: "26px", sm: "26px" },
-                  ":hover": { bgcolor: "#354B44" },
-                }}
-              >
-                ثبت نام
-              </Button>
+            <div className="mt-[100px]">
+              <div className="flex items-center flex-col gap-2">
+                <h3 className="lg:text-[32px] text-[26px]">شماره همراه</h3>
+                <input
+                  type="tel"
+                  className="text-[16px] mt-1 h-[60px] rounded-[4px] px-3 border-[1.5px] border-[#747474]"
+                />
+              </div>
+              <div className="flex items-center mt-4 justify-center">
+                <Button
+                  variant="contained"
+                  sx={{
+                    height: "60px",
+                    width: "100%",
+                    bgcolor: "#FBC16A",
+                    color: "#000",
+                    fontSize: {
+                      lg: "32px",
+                      md: "26px",
+                      xs: "26px",
+                      sm: "26px",
+                    },
+                    ":hover": { bgcolor: "#FBC16A" },
+                  }}
+                >
+                  ثبت نام
+                </Button>
+              </div>
             </div>
           </div>
         </Box>
